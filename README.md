@@ -7,15 +7,15 @@ This repo contains some of the distributed application in big data platform
 
   **Abstract:**
   
-    Creating a unique id across cluster using Zookeeper. There are several techniques to achieve this feature.  In this approach, we     store the numeric ranges in zookeeper and each cluster node will get unused range from the zookeeper and generate unique id within that range. Zookeeper is highly available and well scalable component that will best fit for this configuration management.
+   Creating a unique id across cluster using Zookeeper. There are several techniques to achieve this feature.  In this approach, we     store the numeric ranges in zookeeper and each cluster node will get unused range from the zookeeper and generate unique id within that range. Zookeeper is highly available and well scalable component that will best fit for this configuration management.
 
   **Design:**
   
-      Img: https://drive.google.com/open?id=12708UXs8tlktaJRl6puiofMDcxC3ghMO
+  Img: https://drive.google.com/open?id=12708UXs8tlktaJRl6puiofMDcxC3ghMO
   
-    - Find the optimal range buffer and limit and build the range table. Write operation in zookeeper is slow operation. Hence choosing the optimal range buffer is significant while considering performance
-    - Each node in the cluster will request zookeeper and get unused range and locally create the unique sequence id within the available range. When the range exhausted, node will request the next available unused range from the zookeeper and continue to generate unique id.
-    - This approach ensures each node in the cluster works with the available range so that there won&#39;t be any clash with id across the cluster
+  - Find the optimal range buffer and limit and build the range table. Write operation in zookeeper is slow operation. Hence choosing the optimal range buffer is significant while considering performance
+  - Each node in the cluster will request zookeeper and get unused range and locally create the unique sequence id within the available range. When the range exhausted, node will request the next available unused range from the zookeeper and continue to generate unique id.
+  - This approach ensures each node in the cluster works with the available range so that there won&#39;t be any clash with id across the cluster
 
   **Implementation:**
   
