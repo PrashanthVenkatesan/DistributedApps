@@ -46,6 +46,8 @@ public class DUIDGen {
 					n = number.getAndIncrement();
 					System.err.println(n);
 				}
+				
+				// Testing purpose
 				Thread.sleep(1000);
 			}
 		} finally {
@@ -60,7 +62,7 @@ public class DUIDGen {
 			if (!e.getValue()) {
 				number = new AtomicLong(e.getKey());
 				rangeMap.put(e.getKey(), true);
-
+				// Testing purpose
 				Thread.sleep(2000);
 				break;
 			}
@@ -74,6 +76,7 @@ public class DUIDGen {
 			rangeMap.put(start, false);
 			start += buffer;
 		}
+		// Testing purpose
 		Thread.sleep(2000);
 	}
 }
